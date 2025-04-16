@@ -19,12 +19,6 @@
       <url>https://opensource.org/license/mit/</url>
     </license>
   </licenses>
-  <scm child.scm.connection.inherit.append.path="false" child.scm.developerConnection.inherit.append.path="false" child.scm.url.inherit.append.path="false">
-    <connection>scm:git:https://gitlab.com/bilderlings/sre/tools/jenkins-s3trigger-plugin/</connection>
-    <developerConnection>scm:git:https://gitlab.com/bilderlings/sre/tools/jenkins-s3trigger-plugin/</developerConnection>
-    <tag>${scmTag}</tag>
-    <url>https://gitlab.com/bilderlings/sre/tools/jenkins-s3trigger-plugin/</url>
-  </scm>
   <properties>
     <revision>1.5</revision>
     <changelist />
