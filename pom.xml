@@ -28,7 +28,7 @@
   <properties>
     <revision>1.5</revision>
     <changelist />
-    <jenkins.version>2.387.3</jenkins.version>
+    <jenkins.version>2.505</jenkins.version>
     <spotless.check.skip>false</spotless.check.skip>
   </properties>
 

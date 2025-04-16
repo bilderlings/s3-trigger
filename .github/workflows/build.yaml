@@ -1,7 +1,7 @@
 name: Maven Build
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v3
       with:
-        java-version: '17' # or your preferred version
+        java-version: '21' # or your preferred version
         distribution: 'temurin'
         cache: 'maven' # Automatic Maven dependency caching
 
@@ -23,7 +23,8 @@ jobs:
       run: mvn -B install
 
     - name: Upload Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
-        name: hpi-artifact
+        name: plugin-artifact
         path: target/s3trigger.hpi
+        retention-days: 180
