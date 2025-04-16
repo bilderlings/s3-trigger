@@ -1,1 +1,1 @@
-# s3-trigger
+# s3trigger
