@@ -1,4 +1,4 @@
-name: s3plugin build 
+name: s3plugin build
 on:
   push:
     branches: [ main ]
@@ -15,7 +15,7 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v3
       with:
-        java-version: '21'
+        java-version: '17'
         distribution: 'temurin'
         cache: 'maven'
 
