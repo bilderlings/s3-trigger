@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-
+    <version>4.73</version>
     <relativePath />
   </parent>
 
-  <groupId>com.yourcompany</groupId>
-  <artifactId>your-plugin</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <groupId>io.jenkins.plugins</groupId>
+  <artifactId>s3trigger</artifactId>
+  <version>${revision}${changelist}</version>
   <packaging>hpi</packaging>
-
   <name>S3 Trigger Plugin</name>
   <description>Description of your plugin</description>
-  <url>https://github.com/your-repo/your-plugin</url>
+  <url>https://github.com/bilderlings/s3-trigger</url>
 
   <properties>
     <jenkins.version>2.426.3</jenkins.version>
@@ -30,73 +28,38 @@
     <dependencies>
       <dependency>
         <groupId>io.jenkins.tools.bom</groupId>
-        <artifactId>bom-2.426.x</artifactId>
-        <version>2267.vd8b_7b_1350466</version>
-        <scope>import</scope>
+        <artifactId>bom-2.387.x</artifactId>
+        <version>2423.vce598171d115</version>
         <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>2.0.11</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
 
   <dependencies>
     <dependency>
-      <groupId>org.jenkins-ci.main</groupId>
-      <artifactId>jenkins-core</artifactId>
-      <scope>provided</scope>
+      <groupId>com.jayway.jsonpath</groupId>
+      <artifactId>json-path</artifactId>
+      <version>2.9.0</version>
+      <scope>compile</scope>
     </dependency>
-
-    <dependency>
-      <groupId>org.jenkins-ci.main</groupId>
-      <artifactId>jenkins-war</artifactId>
-      <type>war</type>
-      <scope>test</scope>
-    </dependency>
-
   </dependencies>
-
-  <build>
-    <plugins>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-enforcer-plugin</artifactId>
-        <version>3.4.0</version>
-        <executions>
-          <execution>
-            <id>enforce-bytecode-version</id>
-            <goals><goal>enforce</goal></goals>
-            <configuration>
-              <rules>
-                <EnforceBytecodeVersion>
-                  <maxJdkVersion>11</maxJdkVersion>
-                  <excludes>
-
-                    <exclude>org.jenkins-ci.*:*</exclude>
-                    <exclude>org.kohsuke.*:*</exclude>
-                    <exclude>io.jenkins.*:*</exclude>
-                  </excludes>
-                </EnforceBytecodeVersion>
-              </rules>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
-
-      <plugin>
-        <groupId>org.jenkins-ci.tools</groupId>
-        <artifactId>maven-hpi-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
 
   <repositories>
     <repository>
       <id>repo.jenkins-ci.org</id>
       <url>https://repo.jenkins-ci.org/public/</url>
     </repository>
+    <repository>
+      <id>central</id>
+      <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
   </repositories>
-
   <pluginRepositories>
     <pluginRepository>
       <id>repo.jenkins-ci.org</id>
@@ -104,3 +67,4 @@
     </pluginRepository>
   </pluginRepositories>
 </project>
+
