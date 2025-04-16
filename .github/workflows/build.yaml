@@ -1,16 +1,13 @@
-name: Maven Build
-
+name: s3plugin build 
 on:
   push:
-    branches: [ main ]
-  pull_request:
     branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      MAVEN_OPTS: "-Dmaven.repo.local=${{ github.workspace }}/.m2/repository"
+      MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
 
     steps:
     - uses: actions/checkout@v4
@@ -18,8 +15,9 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v3
       with:
-        java-version: '17'
+        java-version: '21'
         distribution: 'temurin'
+        cache: 'maven'
 
     - name: Cache Maven local repo
       uses: actions/cache@v3
@@ -32,7 +30,7 @@ jobs:
           ${{ runner.os }}-maven-
 
     - name: Build with Maven
-      run: mvn -B verify --file pom.xml
+      run: mvn -B install
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4

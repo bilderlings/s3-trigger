@@ -68,4 +68,35 @@
       <url>https://repo.jenkins-ci.org/public/</url>
     </pluginRepository>
   </pluginRepositories>
+ <plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-enforcer-plugin</artifactId>
+  <version>3.4.0</version>
+  <dependencies>
+    <dependency>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>extra-enforcer-rules</artifactId>
+      <version>1.6.1</version>
+    </dependency>
+  </dependencies>
+  <executions>
+    <execution>
+      <id>enforce-bytecode</id>
+      <goals><goal>enforce</goal></goals>
+      <configuration>
+        <rules>
+          <EnforceBytecodeVersion>
+            <maxJdkVersion>11</maxJdkVersion>
+            <!-- Exclude Jenkins core dependencies -->
+            <excludes>
+              <exclude>org.jenkins-ci.*:*</exclude>
+              <exclude>org.kohsuke.*:*</exclude>
+              <exclude>org.springframework.*:*</exclude>
+            </excludes>
+          </EnforceBytecodeVersion>
+        </rules>
+      </configuration>
+    </execution>
+  </executions>
+  </plugin>
 </project>
