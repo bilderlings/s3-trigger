@@ -46,8 +46,7 @@ jobs:
         name: Release v1.0.1
         body: |-
           Release notes here
-          - Feature 1
-          - Bug fix 2
+          - add release step 
         draft: false
         prerelease: false
         files: |
