@@ -7,17 +7,17 @@ on:
 jobs:
   upload_plugin:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-      
+
     - name: Get version from pom.xml
       id: version
       uses: martinbelev/xml-get-version@v1
       with:
         file: 'pom.xml'
-        
+
     - name: Verify tag matches version
       run: |
         if [ "${{ github.event.release.tag_name }}" != "v${{ steps.version.outputs.version }}" ]; then

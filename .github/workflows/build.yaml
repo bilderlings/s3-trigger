@@ -37,3 +37,20 @@ jobs:
       with:
         name: hpi-artifact
         path: target/s3trigger.hpi
+
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: v1.0.1
+        name: Release v1.0.1
+        body: |-
+          Release notes here
+          - Feature 1
+          - Bug fix 2
+        draft: false
+        prerelease: false
+        files: |
+          target/s3trigger.hpi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
