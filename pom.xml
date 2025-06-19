@@ -10,7 +10,7 @@
 
   <groupId>io.jenkins.plugins</groupId>
   <artifactId>s3trigger</artifactId>
-  <version>1.5</version>
+  <version>v1.0.1</version>
   <packaging>hpi</packaging>
   <name>S3 Trigger Plugin</name>
   <description>Description of your plugin</description>
