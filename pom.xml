@@ -4,53 +4,26 @@
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>4.73</version>
+    <version>5.18</version>
     <relativePath />
   </parent>
 
   <groupId>io.jenkins.plugins</groupId>
   <artifactId>s3trigger</artifactId>
-  <version>v1.0.2 </version>
+  <version>1.5</version>
   <packaging>hpi</packaging>
   <name>S3 Trigger Plugin</name>
   <description>Description of your plugin</description>
   <url>https://github.com/bilderlings/s3-trigger</url>
 
   <properties>
-    <jenkins.version>2.479.1</jenkins.version>
-    <maven.compiler.source>17</maven.compiler.source> <!-- Adjust to your JDK -->
-    <maven.compiler.target>17</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <jenkins.version>2.516</jenkins.version> <!-- Target Jenkins core version -->
+    <java.level>21</java.level> <!-- Set to 11 or 17 depending on Jenkins core -->
+    <plugin.firstClassLoader>true</plugin.firstClassLoader>
   </properties>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.10.1</version>
-        <configuration>
-          <source>17</source>
-          <target>17</target>
-          <release>17</release>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.jenkins-ci.tools</groupId>
-        <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.48</version> <!-- replace with a valid version -->
-        <extensions>true</extensions>
-      </plugin>
-    </plugins>
-  </build>
+
   <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>javax.servlet-api</artifactId>
-        <version>3.1.0</version>
-        <scope>provided</scope>
-      </dependency>
       <dependency>
         <groupId>io.jenkins.tools.bom</groupId>
         <artifactId>bom-2.387.x</artifactId>
@@ -74,16 +47,21 @@
       <scope>compile</scope>
     </dependency>
   </dependencies>
+
   <repositories>
     <repository>
-      <id>jenkins-public</id>
+      <id>repo.jenkins-ci.org</id>
       <url>https://repo.jenkins-ci.org/public/</url>
+    </repository>
+    <repository>
+      <id>central</id>
+      <url>https://repo.maven.apache.org/maven2</url>
     </repository>
   </repositories>
 
   <pluginRepositories>
     <pluginRepository>
-      <id>jenkins-public</id>
+      <id>repo.jenkins-ci.org</id>
       <url>https://repo.jenkins-ci.org/public/</url>
     </pluginRepository>
   </pluginRepositories>
