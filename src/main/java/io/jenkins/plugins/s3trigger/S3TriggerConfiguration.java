@@ -2,6 +2,10 @@ package io.jenkins.plugins.s3trigger;
 
 import hudson.Extension;
 import hudson.ExtensionList;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import jenkins.model.GlobalConfiguration;
@@ -10,7 +14,7 @@ import org.kohsuke.stapler.DataBoundSetter;
 @Extension
 public class S3TriggerConfiguration extends GlobalConfiguration {
     private String token;
-    private final Set<String> queue = ConcurrentHashMap.newKeySet();
+    private Set<String> queue = Collections.emptySet();
 
     public static S3TriggerConfiguration get() {
         return ExtensionList.lookupSingleton(S3TriggerConfiguration.class);
