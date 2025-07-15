@@ -10,14 +10,14 @@
 
   <groupId>io.jenkins.plugins</groupId>
   <artifactId>s3trigger</artifactId>
-  <version>1.5</version>
+  <version>1.6</version>
   <packaging>hpi</packaging>
   <name>S3 Trigger Plugin</name>
   <description>Description of your plugin</description>
   <url>https://github.com/bilderlings/s3-trigger</url>
 
   <properties>
-    <jenkins.version>2.516</jenkins.version> <!-- Target Jenkins core version -->
+    <jenkins.version>2.518</jenkins.version> <!-- Target Jenkins core version -->
     <java.level>17</java.level> <!-- Set to 11 or 17 depending on Jenkins core -->
     <plugin.firstClassLoader>true</plugin.firstClassLoader>
   </properties>
